@@ -61,7 +61,7 @@ fun main() {
         } else if(myJob == "궁수") {
             println("궁수를 선택했군요")
             var myCharacter = Archer(myName, myAge, myGender, myMoney, myHp)    // 객체 실체화 : 궁수를 선택했다면 Archer 클래스를 바탕으로 인스턴스를 만듦.
-                                                                                // 그리고 내가 입력한 정보들을 부생성자로 넘겨서 인스턴스를 만들, 인스턴스의 메모리 주소를 mycharacter에 담아 놓음.
+                                                                                // 내가 입력한 정보들을 부생성자로 넘겨서 인스턴스를 만들고, 인스턴스의 메모리 주소를 mycharacter에 담아 놓음.
             println("던전을 선택해주세요")
             println("[1] 슬라임동굴, [2] 좀비마을")
             var selectWorld = readLine()!!.toInt()
@@ -79,7 +79,7 @@ fun displayInfo(worldName:String, myName:String, myAge:Int, myJob:String) {
     println("모험을 떠나 볼까요?")
 }
 
-fun selectWorldByArcher(selectWorld:Int, myCharacter: Archer) {
+fun selectWorldByArcher(selectWorld:Int, myCharacter: Archer) {    // 던전 고른 값(1과 2중)과, 캐릭터 객체가 넘어온다.
     if(selectWorld == 1) { // 슬라임 던전
         var slime1 = Slime("초록슬라임", "초록", 30.2, 200, 10)
         slime1.attack()
@@ -94,7 +94,7 @@ fun selectWorldByArcher(selectWorld:Int, myCharacter: Archer) {
 
 fun selectWorldByWizard(selectWorld:Int, myCharacter: Wizard) {
     if(selectWorld == 1) { // 슬라임 던전
-        var slime1 = Slime("초록슬라임", "초록", 30.2, 200, 10)
+        var slime1 = Slime("초록슬라임", "초록", 30.2, 200, 10)    // 슬라임 객체 실체화
         slime1.attack()
         myCharacter.attack()
 

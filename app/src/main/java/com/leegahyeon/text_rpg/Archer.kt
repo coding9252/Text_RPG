@@ -8,7 +8,7 @@ class Archer {
     var hp:Int = 0
 
     constructor(_name:String, _age:Int, _gender:String, _money:Int, _hp:Int) {
-        println("${name}궁수 생성")
+        println("${_name}궁수 생성")
         name = _name
         age = _age
         gender = _gender
