@@ -1,6 +1,6 @@
 package com.leegahyeon.text_rpg
 
-class Wizard {
+class Wizard : Character {
     var name:String = ""
     var age:Int = 0
     var gender:String = ""
@@ -9,7 +9,7 @@ class Wizard {
     var mp:Int = 0
 
     constructor(_name:String, _age:Int, _gender:String, _money:Int, _hp:Int, _mp:Int) {
-        println("${_name}마법사 생성")
+        println("${name}마법사 생성")
         name = _name
         age = _age
         gender = _gender
@@ -18,7 +18,7 @@ class Wizard {
         mp = _mp
     }
 
-    fun attack() {
+    override fun attack() {   // Character 클래스의 attack() 메소드 오버라이딩
         println("에너지 볼!")
     }
 
@@ -26,7 +26,7 @@ class Wizard {
         println("파이어 볼!")
     }
 
-    fun teleport(src:Int, dst:Int) {          // 어떤 곳에서 어떤 목적지까지 이동할지
+    fun teleport(src:Int, dst:Int) {
         println("${src}에서 ${dst}로 텔레포트!")
     }
 }

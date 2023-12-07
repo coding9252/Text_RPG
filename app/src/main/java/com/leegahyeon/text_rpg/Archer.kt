@@ -1,6 +1,6 @@
 package com.leegahyeon.text_rpg
 
-class Archer {
+class Archer : Character {
     var name:String = ""
     var age:Int = 0
     var gender:String = ""
@@ -8,7 +8,7 @@ class Archer {
     var hp:Int = 0
 
     constructor(_name:String, _age:Int, _gender:String, _money:Int, _hp:Int) {
-        println("${_name}궁수 생성")
+        println("${name}궁수 생성")
         name = _name
         age = _age
         gender = _gender
@@ -16,7 +16,7 @@ class Archer {
         hp = _hp
     }
 
-    fun attack() {
+    override fun attack() {    // Character 클래스의 attach() 메소드 오버라이딩
         println("활쏘기!")
     }
 

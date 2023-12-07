@@ -35,8 +35,8 @@ fun main() {
         }
     }
 
-    if(myAge < 8) {
-        println("8세 미만은 이용할 수 없습니다.")
+    if(myAge < 12) {
+        println("12세 미만은 이용할 수 없습니다.")
         isAgePass = false
     }
     if(myJob == "전사") {
@@ -60,12 +60,12 @@ fun main() {
 
         } else if(myJob == "궁수") {
             println("궁수를 선택했군요")
-            var myCharacter = Archer(myName, myAge, myGender, myMoney, myHp)    // 객체 실체화 : 궁수를 선택했다면 Archer 클래스를 바탕으로 인스턴스를 만듦.
-                                                                                // 내가 입력한 정보들을 부생성자로 넘겨서 인스턴스를 만들고, 인스턴스의 메모리 주소를 mycharacter에 담아 놓음.
+            var myCharacter = Archer(myName, myAge, myGender, myMoney, myHp)
+
             println("던전을 선택해주세요")
             println("[1] 슬라임동굴, [2] 좀비마을")
             var selectWorld = readLine()!!.toInt()
-            selectWorldByArcher(selectWorld, myCharacter)                       // 1과 2중 선택하면 selectWorld 변수에 값이 들어가고, selectWorldByArcher에 그 값과 내 캐릭터 객체를 한꺼번에 넘겨줌.
+            selectWorldByArcher(selectWorld, myCharacter)
         }
     }
 }
@@ -79,11 +79,13 @@ fun displayInfo(worldName:String, myName:String, myAge:Int, myJob:String) {
     println("모험을 떠나 볼까요?")
 }
 
-fun selectWorldByArcher(selectWorld:Int, myCharacter: Archer) {    // 던전 고른 값(1과 2중)과, 캐릭터 객체가 넘어온다.
+fun selectWorldByArcher(selectWorld:Int, myCharacter: Archer) {
     if(selectWorld == 1) { // 슬라임 던전
         var slime1 = Slime("초록슬라임", "초록", 30.2, 200, 10)
         slime1.attack()
         myCharacter.windArrow()
+
+        slime1.poison()         // Archer 선택 -> 슬라임동굴 선택 -> 슬라임 color가 초록이라 poison 메소드 사용 가능
 
     } else if(selectWorld == 2) { // 좀비 던전
         var zombie1 = Zombie("파랑좀비", "파랑", 142.2, 500, 25)
@@ -94,13 +96,16 @@ fun selectWorldByArcher(selectWorld:Int, myCharacter: Archer) {    // 던전 고
 
 fun selectWorldByWizard(selectWorld:Int, myCharacter: Wizard) {
     if(selectWorld == 1) { // 슬라임 던전
-        var slime1 = Slime("초록슬라임", "초록", 30.2, 200, 10)    // 슬라임 객체 실체화
+        var slime1 = Slime("파랑슬라임", "파랑", 30.2, 200, 10)
         slime1.attack()
         myCharacter.attack()
+
+        slime1.poison()         // Wizard 선택 -> 슬라임동굴 선택 -> 슬라임 color가 파랑이라 poison 메소드 사용 불가
+
 
     } else if(selectWorld == 2) { // 좀비 던전
         var zombie1 = Zombie("파랑좀비", "파랑", 142.2, 500, 25)
         zombie1.virus()
         myCharacter.fireBall()
     }
-}   // 지금은 archer가 선택한 world와 wizard가 선택한 world를 구분해 놓았지만 나중에(배우면) 하나로 합칠 수 있음
+}
