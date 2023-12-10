@@ -1,13 +1,13 @@
 package com.leegahyeon.text_rpg
 
 class Slime : Monster, GreenSlimeSkill {
-    var name:String
-    var color:String
-    var height:Double
-    var hp:Int
-    var damage:Int
+    var name: String
+    var color: String
+    var height: Double
+    var hp: Int
+    var damage: Int
 
-    constructor(_name:String, _color:String, _height:Double, _hp:Int, _damage:Int) {
+    constructor(_name: String, _color: String, _height: Double, _hp: Int, _damage: Int) {
         name = _name
         color = _color
         height = _height
@@ -25,7 +25,7 @@ class Slime : Monster, GreenSlimeSkill {
     }
 
     override fun poison() {
-        if(color == "초록") {
+        if (color == "초록") {
             println("초록 독 퍼뜨리기!")
         } else {
             println("일반 슬라임은 사용할 수 없습니다.")
